@@ -17,7 +17,7 @@ This is a GUI tool for updating ENS domain with SWARM hash.
 
 This html installs http protocol handlers for bzz, bzzi and bzzr protocols.
 
-You can either upload each example into Swarm and run it from there or run a 
+You can either upload each example into Swarm and run it from there or run a
 proxy server (see below)
 
 ## Running via proxy server
@@ -32,3 +32,7 @@ Now run `./start-proxy <folder>`. For example, to run the filemanager:
 ./start-proxy ./examples/filemanager
 ```
 
+### Testing Notes
+
+Above did not work in my case
+  To run Using  "node start-proxy examples/album"

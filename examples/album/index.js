@@ -17,7 +17,9 @@ var uploadFileForm = "<input type=\"file\" id=\"fileElem\" multiple accept=\"ima
 Element.Events.hashchange =
     {
         onAdd: function () {
+          console.log("onAdd");
             var hash = window.location.hash;
+            console.log(hash);
 
             var hashchange = function () {
                 if (hash == window.location.hash) return;
@@ -286,6 +288,8 @@ function getMultiDelete() {
 }
 
 function deleteImg(items, swarmHash) {
+  console.log(items);
+  console.log(swarmHash);
     var index = eidx;
 
     if (Array.isArray(items)) {
@@ -361,6 +365,7 @@ function deleteImg(items, swarmHash) {
 }
 
 function moveUpDown(off) {
+  console.log(off);
     var me = imgs.data[eidx];
     console.log(me.thumb[0]);
     var moveText = 'Moving up..';
@@ -369,9 +374,11 @@ function moveUpDown(off) {
     }
 
     showModal(moveText, me.thumb[0]);
+    console.log("in ShowModal");
     imgs.data[eidx] = imgs.data[eidx + off];
     imgs.data[eidx + off] = me;
     var xhr = new XMLHttpRequest();
+    console.log(xhr);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             var swarmHash = xhr.responseText;
@@ -425,6 +432,7 @@ function onMainReady() {
     if (!toggleSelect) {
         if (imgs.data[eidx].img) {
             var img = imgs.data[eidx].img[0];
+            console.log(img);
             dsc.push("<a id='download-image' title=\"Download image\" href=\"" + imgs.data[eidx].img[0] + "\"><img src=\"eye.png\"/></a>");
             eimg.addEvent('click', function () {
                 window.location = img;
@@ -580,7 +588,9 @@ function doLoad(i) {
 
 function getLocationIndex() {
     var hash = window.location.hash;
+    console.log(hash);
     var idx = parseInt(!hash.indexOf('#') ? hash.substr(1) : hash);
+    console.log(idx);
     if (isNaN(idx) || idx < 0)
         idx = 0;
     else if (idx >= imgs.data.length)

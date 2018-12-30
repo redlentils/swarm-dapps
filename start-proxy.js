@@ -8,8 +8,13 @@ if ('node' === path.basename(args[0])) {
     args = args.slice(1);
 }
 
-var dir = path.resolve(args[1]);
+console.log("ARGS");
+console.log(args);
 
+var dir = path.resolve(args[2]);
+
+console.log("DIR");
+console.log(dir);
 
 var params = {
     port: 8888, // Set the server port. Defaults to 8080.
@@ -26,5 +31,8 @@ var params = {
     ],
     middleware: [function(req, res, next) { next(); }] // Takes an array of Connect-compatible middleware that are injected into the server middleware stack
 };
+
+console.log("PARAMS");
+console.log(params);
 
 liveServer.start(params);
